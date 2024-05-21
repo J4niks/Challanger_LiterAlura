@@ -73,7 +73,7 @@ public class Main {
     }
 
     private void buscarNovoLivro() {
-        System.out.println("Qual livro deseja buscar?");
+        System.out.println("\nQual livro deseja buscar?");
         var buscaDoUsuario = sc.nextLine();
         var dados = requisicao.consumo(ADDRESS+ buscaDoUsuario.replace(" ","%20"));
         salvarNoDb(dados);
@@ -107,26 +107,43 @@ public class Main {
 
 
     private void buscarLivrosRegistrados() {
-        repositorioLivro.findAll().forEach(System.out::println);
+        var bucasDB = repositorioLivro.findAll();
+        if(!bucasDB.isEmpty()){
+            System.out.println("\nLivros cadastrados no banco de dados: ");
+            bucasDB.forEach(System.out::println);
+        }else{
+            System.out.println("\nNenhum livro encontrado no banco de dados!");
+        }
     }
 
     private void buscarAutoresRegistrados() {
-        repositorioAutor.findAll().forEach(System.out::println);
+        var buscaDb = repositorioAutor.findAll();
+        if(!buscaDb.isEmpty()){
+            System.out.println("\nAutores cadastrados no banco de dados:");
+            buscaDb.forEach(System.out::println);
+        }else{
+            System.out.println("\nNenhum autor encontrado no banco de dados!");
+        }
     }
 
     private void buscarLivrosPorAno() {
-        System.out.println("Qual ano deseja pesquisar?");
+        System.out.println("\nQual ano deseja pesquisar?");
         var anoSelecionado = sc.nextInt();
         sc.nextLine();
-        System.out.println("Atores vivos no ano de:" + anoSelecionado);
-        repositorioAutor.buscarPorAnoDeFalecimento(anoSelecionado).forEach(System.out::println);
+        var buscaAutoresNoDb = repositorioAutor.buscarPorAnoDeFalecimento(anoSelecionado);
+        if(!buscaAutoresNoDb.isEmpty()){
+            System.out.println("\n\nAtores vivos no ano de: " + anoSelecionado);
+            buscaAutoresNoDb.forEach(System.out::println);
+        }else {
+            System.out.println("\nNenhum autor encontrado para esta data!");
+        }
     }
 
     private void buscarLivrosPorIdioma() {
         var idiomasCadastrados = repositorioLivro.bucasidiomas();
-        System.out.println("Idiomas cadastrados no banco:");
+        System.out.println("\nIdiomas cadastrados no banco:");
         idiomasCadastrados.forEach(System.out::println);
-        System.out.println("Selecione um dos idiomas cadastrados no banco:\n");
+        System.out.println("\nSelecione um dos idiomas cadastrados no banco:\n");
         var idiomaSelecionado = sc.nextLine();
         repositorioLivro.buscarPorIdioma(idiomaSelecionado).forEach(System.out::println);
     }

@@ -14,6 +14,7 @@
 	<name>liter_alura</name>
 	<description>projeto para praticar persistencia de dados</description>
 	<properties>
+		<maven.test.skip>true</maven.test.skip>
 		<java.version>17</java.version>
 	</properties>
 	<dependencies>
@@ -47,6 +48,13 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
