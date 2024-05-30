@@ -22,6 +22,8 @@ O sistema oferece as seguintes funcionalidades:
 - Listagem de autores registrados.
 - Listagem de autores que estavam vivos em determinado ano.
 - Listagem de livros em determinado idioma.
+- Top 10 livros por quantidade de downloads.
+- Buscar autor por nome.
 
 ## Tecnologias
 
@@ -53,10 +55,14 @@ Coloque ambos em path adicionando \bin ao final.
 
 ## Extras sugeridos
 Extras sugeridos pelo desafio:
-- Gerando estatísticas: Começamos as sugestões de funcionalidades opcionais lembrando da classe DoubleSummaryStatistics, usada para obter dados estatísticos de um objeto Java. É possível obter esses dados seja de consultas na API ou no banco de dados.
-- Top 10 livros mais baixados: Assim como foi apresentado no curso Java: trabalhando com lambdas, streams e Spring Framework, é possível apresentar os dados dos 10 livros mais baixados, sendo uma consulta diretamente feita na API ou no banco de dados.
-- Buscar autor por nome: Se você deu uma olhada no site da API, é possível realizar a busca por livro ou autor com a consulta feita com search? - no entanto, neste caso, desafiamos você a realizar a consulta por nome de autor no banco de dados criado para nosso projeto.
-- Listar autores com outras consultas: Aqui deixamos como sugestão implementar outras consultas com os atributos de ano de nascimento e falecimento dos autores. Sinta-se livre para explorar e implementar essas características adicionais.
+- Gerando estatísticas: Começamos as sugestões de funcionalidades opcionais lembrando da classe DoubleSummaryStatistics, usada para obter dados estatísticos de um objeto Java. É possível obter esses dados seja de consultas na API ou no banco de dados.<br>
+EM ANDAMENTO
+- Top 10 livros mais baixados: Assim como foi apresentado no curso Java: trabalhando com lambdas, streams e Spring Framework, é possível apresentar os dados dos 10 livros mais baixados, sendo uma consulta diretamente feita na API ou no banco de dados.<br>
+CONCLUIDO
+- Buscar autor por nome: Se você deu uma olhada no site da API, é possível realizar a busca por livro ou autor com a consulta feita com search? - no entanto, neste caso, desafiamos você a realizar a consulta por nome de autor no banco de dados criado para nosso projeto.<br>
+CONCLUIDO
+- Listar autores com outras consultas: Aqui deixamos como sugestão implementar outras consultas com os atributos de ano de nascimento e falecimento dos autores. Sinta-se livre para explorar e implementar essas características adicionais.<br>
+EM ANDAMENTO
 
 
 ## Resultado

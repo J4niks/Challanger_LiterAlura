@@ -35,6 +35,8 @@ public class Main {
                 3 - Listar autores registrados
                 4 - Listar autores vivos em determinado ano
                 5 - Listar livros em determinado idioma
+                6 - Top 10 livros
+                7 - Buscar autores por nome
                 
                 0 - Sair
                 **********************************************
@@ -60,6 +62,12 @@ public class Main {
                     break;
                 case 5:
                     buscarLivrosPorIdioma();
+                    break;
+                case 6:
+                    buscarTop10();
+                    break;
+                case 7:
+                    buscarAutorPorNome();
                     break;
                 case 0:
                     System.out.println("Saindo...");
@@ -147,4 +155,17 @@ public class Main {
         var idiomaSelecionado = sc.nextLine();
         repositorioLivro.buscarPorIdioma(idiomaSelecionado).forEach(System.out::println);
     }
+
+    private void buscarTop10() {
+        var top10 = repositorioLivro.findTop10ByOrderByQuantidadeDeDownloadsDesc();
+        top10.forEach(System.out::println);
+    }
+
+    private void buscarAutorPorNome() {
+        System.out.println("Qual o nome do autor?");
+        var pesquisa = sc.nextLine();
+        var autor = repositorioAutor.encontrarPorNome(pesquisa);
+        autor.forEach(System.out::println);
+    }
+
 }

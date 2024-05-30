@@ -17,4 +17,6 @@ public interface BookRepository extends JpaRepository<Book,Long> {
     List<Book> buscarPorIdioma(String idiomaSelecionado);
 
     Book findByNome(String nome);
+
+    List<Book> findTop10ByOrderByQuantidadeDeDownloadsDesc();
 }
