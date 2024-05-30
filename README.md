@@ -67,7 +67,7 @@ OPTEI POR NÃO FAZER
 
 ## Resultado
 
-<img src="README_FILES/Resultado.gif">
+<img src="README_FILES/resultado.gif">
 
 ## Contribuição
 
