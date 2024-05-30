@@ -65,7 +65,6 @@ CONCLUÍDO
 - Listar autores com outras consultas: Aqui deixamos como sugestão implementar outras consultas com os atributos de ano de nascimento e falecimento dos autores. Sinta-se livre para explorar e implementar essas características adicionais.<br>
 OPTEI POR NÃO FAZER
 
-
 ## Resultado
 
 <img src="README_FILES/Resultado.gif">
