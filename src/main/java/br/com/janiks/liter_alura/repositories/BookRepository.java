@@ -19,4 +19,7 @@ public interface BookRepository extends JpaRepository<Book,Long> {
     Book findByNome(String nome);
 
     List<Book> findTop10ByOrderByQuantidadeDeDownloadsDesc();
+
+    @Query("SELECT b FROM Book b WHERE b.autor.nome ILIKE %:pesquisa%")
+    List<Book> encontrarLivrosPorAutor(String pesquisa);
 }

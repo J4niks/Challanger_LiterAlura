@@ -9,9 +9,8 @@ import br.com.janiks.liter_alura.repositories.BookRepository;
 import br.com.janiks.liter_alura.services.ApiRequest;
 import br.com.janiks.liter_alura.services.DataConverter;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class Main {
     private Scanner sc = new Scanner(System.in);
@@ -37,6 +36,7 @@ public class Main {
                 5 - Listar livros em determinado idioma
                 6 - Top 10 livros
                 7 - Buscar autores por nome
+                8 - Media de downloads por autor
                 
                 0 - Sair
                 **********************************************
@@ -58,7 +58,7 @@ public class Main {
                     buscarAutoresRegistrados();
                     break;
                 case 4:
-                    buscarLivrosPorAno();
+                    buscarAutoresVivosPorAno();
                     break;
                 case 5:
                     buscarLivrosPorIdioma();
@@ -68,6 +68,9 @@ public class Main {
                     break;
                 case 7:
                     buscarAutorPorNome();
+                    break;
+                case 8:
+                    mediaDeDownlaodsPorAutor();
                     break;
                 case 0:
                     System.out.println("Saindo...");
@@ -134,7 +137,7 @@ public class Main {
         }
     }
 
-    private void buscarLivrosPorAno() {
+    private void buscarAutoresVivosPorAno() {
         System.out.println("\nQual ano deseja pesquisar?");
         var anoSelecionado = sc.nextInt();
         sc.nextLine();
@@ -165,7 +168,22 @@ public class Main {
         System.out.println("Qual o nome do autor?");
         var pesquisa = sc.nextLine();
         var autor = repositorioAutor.encontrarPorNome(pesquisa);
-        autor.forEach(System.out::println);
+        if (!autor.isEmpty()){
+            autor.forEach(System.out::println);
+        }else{
+            System.out.println("*** Autor não encontrado! ***");
+        }
     }
+
+    private void mediaDeDownlaodsPorAutor() {
+        System.out.println("Qual autor deseja buscar?");
+        var pesquisa = sc.nextLine();
+        var test = repositorioLivro.encontrarLivrosPorAutor(pesquisa);
+        DoubleSummaryStatistics media = test.stream()
+                .mapToDouble(Book::getQuantidadeDeDownloads)
+                .summaryStatistics();
+        System.out.println("Média de Downloads: "+ media.getAverage());
+    }
+
 
 }
